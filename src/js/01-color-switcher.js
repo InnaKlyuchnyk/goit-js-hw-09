@@ -17,6 +17,7 @@ refs.stopBtn.setAttribute('disabled', 'true');
 function onStartBtnClick() {
   timerId = setInterval(() => {
     refs.body.style.backgroundColor = getRandomHexColor();
+    console.log(refs.body.style.backgroundColor);
   }, INTERVAL_TIME);
 
   refs.startBtn.setAttribute('disabled', 'true');
