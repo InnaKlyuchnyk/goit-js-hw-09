@@ -14,7 +14,7 @@ const options = {
   },
 };
 
-const timer = flatpickr('input[type="text"]', options);
+const calendar = flatpickr('input[type="text"]', options);
 
 const refs = {
   input: document.querySelector('#datetime-picker'),
@@ -25,8 +25,6 @@ const refs = {
   seconds: document.querySelector('[data-seconds]'),
 };
 
-console.log(refs.input);
-
 refs.startBtn.setAttribute('disabled', 'true');
 refs.startBtn.addEventListener('click', onStartBtnClick);
 
@@ -34,7 +32,7 @@ function onStartBtnClick() {
   refs.startBtn.setAttribute('disabled', 'true');
   refs.input.setAttribute('disabled', 'true');
 
-  const startTime = timer.selectedDates[0].getTime();
+  const startTime = calendar.selectedDates[0].getTime();
   setInterval(() => {
     const currentTime = Date.now();
     const deltaTime = startTime - currentTime;
