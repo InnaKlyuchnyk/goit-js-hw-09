@@ -25,6 +25,8 @@ const refs = {
   seconds: document.querySelector('[data-seconds]'),
 };
 
+// console.log(refs.input);
+
 refs.startBtn.setAttribute('disabled', 'true');
 refs.startBtn.addEventListener('click', onStartBtnClick);
 
