@@ -33,10 +33,12 @@ function onStartBtnClick() {
   refs.input.setAttribute('disabled', 'true');
 
   const startTime = calendar.selectedDates[0].getTime();
+
   setInterval(() => {
     const currentTime = Date.now();
     const deltaTime = startTime - currentTime;
     const timeComponents = convertMs(deltaTime);
+
     updateTimeInterface(timeComponents);
     console.log(timeComponents);
   }, 1000);
