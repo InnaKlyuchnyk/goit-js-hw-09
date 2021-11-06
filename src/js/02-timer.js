@@ -17,7 +17,7 @@ const options = {
 const timer = flatpickr('input[type="text"]', options);
 
 const refs = {
-  input: document.querySelector('input[type="datetime-local"]'),
+  input: document.querySelector('#datetime-picker'),
   startBtn: document.querySelector('button[data-start]'),
   days: document.querySelector('[data-days]'),
   hours: document.querySelector('[data-hours]'),
@@ -25,7 +25,7 @@ const refs = {
   seconds: document.querySelector('[data-seconds]'),
 };
 
-// console.log(refs.input);
+console.log(refs.input);
 
 refs.startBtn.setAttribute('disabled', 'true');
 refs.startBtn.addEventListener('click', onStartBtnClick);
