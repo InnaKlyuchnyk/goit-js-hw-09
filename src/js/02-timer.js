@@ -17,15 +17,13 @@ const options = {
 const timer = flatpickr('input[type="text"]', options);
 
 const refs = {
-  input: document.querySelector('#datetime-picker'),
+  input: document.querySelector('input[type="datetime-local"]'),
   startBtn: document.querySelector('button[data-start]'),
   days: document.querySelector('[data-days]'),
   hours: document.querySelector('[data-hours]'),
   minutes: document.querySelector('[data-minutes]'),
   seconds: document.querySelector('[data-seconds]'),
 };
-
-console.log(refs.input);
 
 refs.startBtn.setAttribute('disabled', 'true');
 refs.startBtn.addEventListener('click', onStartBtnClick);
