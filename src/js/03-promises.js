@@ -28,46 +28,17 @@ function onSubmirBtnClick(event) {
   const amount = Number(refs.amount.value);
   let delay = firstDelay;
   for (let i = 1; i <= amount; i++) {
+    createPromise(i, delay)
+      .then(({ position, delay }) =>
+        setTimeout(() => {
+          Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay} ms`);
+        }, delay),
+      )
+      .catch(({ position, delay }) =>
+        setTimeout(() => {
+          Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay} ms`);
+        }, delay),
+      );
     delay += step;
-    setTimeout(() => {
-      createPromise(i, delay)
-        .then(({ position, delay }) =>
-          console.log(`✅ Fulfilled promise ${position} in ${delay} ms`),
-        )
-        .catch(({ position, delay }) =>
-          console.log(`❌ Rejected promise ${position} in ${delay} ms`),
-        );
-    }, delay);
   }
 }
-
-// ======================================================================
-
-// Notiflix.Notify.success
-// Notiflix.Notify.failure;
-// function createPromise(position, delay) {
-//   event.preventDefault();
-//   const amount = Number(refs.amount.value);
-
-//   for (let i = 1; i <= amount; i++) {
-//     const step = Number(refs.step.value);
-//     const firstDelay = Number(refs.delay.value);
-//     delay = firstDelay;
-
-//     const shouldResolve = Math.random() > 0.3;
-
-//     new Promise((resolve, reject) =>
-//       setTimeout(() => {
-//         if (shouldResolve) {
-//           resolve(i, delay);
-//         } else {
-//           reject(i, delay);
-//         }
-//       }, delay),
-//     )
-//       .then((position, delay) => console.log(`✅ Fulfilled promise ${position} in ${delay} ms`))
-//       .catch(position => console.log(`❌ Rejected promise ${position} in ${delay} ms`));
-//     // delay += step;
-//   }
-// }
-// ===============================================================================
